@@ -1,0 +1,41 @@
+<h1>ngIf</h1>
+<input type="text" required [(ngModel)]="person.name">
+<p *ngIf="person.name==='nicolas' && person.age===18; else elseBlock"> Soy {{person.name}} </p>
+<ng-template #elseBlock>
+  <p>No cumple con la condición</p>
+</ng-template>
+
+<hr>
+<h1>NgModel</h1>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
+<p>Nombre: {{ person.name }}</p>
+<p>Valid: {{ nameInput.valid }}</p>
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age">
+<p>Nombre: {{ person.age }}</p>
+<p>Valid: {{ ageInput.valid }}</p>
+
+<hr>
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="onClick()">Togle Button</button>
+
+<h2>Edad {{person.age}}</h2>
+<button (click)="addAge()">Age++</button>
+
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quo, provident, aliquid id debitis ad molestias incidunt ex voluptatem, sunt eum aut? Consequatur corporis quaerat voluptatem recusandae, magni eligendi dolorem?</p>
+</div>
+
+<h1>Propiedades</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<input type="text" [value]="name" (keyup)="onKeyup($event)">
+<p>Nombre: {{ person.name }}</p>
+<progress max="100" [value] = "age"></progress>
+<img width="100" [src]="img" alt="imagen">
+
+<hr>
+<h1>Hola mundo</h1>
+<h2>{{ 'hola mundo'.repeat(5) }}</h2>
+<h3>Hola soy {{ name }} y tengo {{ age }} years</h3>
+<img src={{img}} alt="imagen">
+
